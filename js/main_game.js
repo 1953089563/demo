@@ -6,7 +6,7 @@ const updateNow = async () => {
     const version = await CapacitorUpdater.download({
         // url: 'https://github.com/Cap-go/demo-app/releases/download/0.0.2/dist.zip',
         // url: 'http://192.168.1.61/capacitor/download/2.0.0/dist.zip'  // 本地服务器下载失败
-        url: 'https://github.com/1953089563/demo/releases/download/v2.0.0/dist.zip'
+        url: 'https://github.com/1953089563/demo/releases/download/v3.0.0/dist.zip'
     })
     console.log('version', version);
     // show the splashscreen to let the update happen
@@ -35,20 +35,20 @@ export class mainGame extends Phaser.Scene {
     }
     create() {
         const scene = this;
-        this.add.text(1024 / 2, 100, 'apacitor-updater 1.0.0').setOrigin(0.5);
+        this.add.text(1024 / 2, 100, 'apacitor-updater 2.0.0').setOrigin(0.5);
 
         const btn = scene.add.container(1024 / 2, 300);
-        const rect = scene.add.rectangle(0, 0, 100, 100, 0xfff, 0.5);
-        const text = this.add.text(0, 0, 'update').setOrigin(0.5);
+        const rect = scene.add.rectangle(0, 0, 150, 100, 0xfff, 0.5);
+        const text = this.add.text(0, 0, 'update v3.0.0').setOrigin(0.5);
         btn.add([rect, text])
-        btn.setSize(100, 100).setInteractive({
+        btn.setSize(150, 100).setInteractive({
             useHandCursor: true
         });
         btn.on('pointerup', function () {
             updateNow();
         })
 
-        scene.add.image(1024 / 2, 500, 'img_002.jpg')
+        scene.add.image(1024 / 2, 500, 'img_004.jpg')
     }
 }
 
