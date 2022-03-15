@@ -35,7 +35,7 @@ export class mainGame extends Phaser.Scene {
     }
     create() {
         const scene = this;
-        this.add.text(1024 / 2, 100, 'apacitor-updater 1.1.0').setOrigin(0.5);
+        this.add.text(1024 / 2, 100, 'apacitor-updater 1.0.0').setOrigin(0.5);
 
         const btn = scene.add.container(1024 / 2, 300);
         const rect = scene.add.rectangle(0, 0, 100, 100, 0xfff, 0.5);
