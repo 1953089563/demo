@@ -7,11 +7,23 @@ const updateNow = async () => {
         // url: 'https://github.com/Cap-go/demo-app/releases/download/0.0.2/dist.zip',
         // url: 'http://192.168.1.61/capacitor/download/2.0.0/dist.zip'  // 本地服务器下载失败
         url: 'https://github.com/1953089563/demo/releases/download/v3.0.0/dist.zip'
+    }).catch((err) => {
+        console.log('更新v3.0.0 err', err);
+        CapacitorUpdater.reset();
     })
-    console.log('version', version);
+    CapacitorUpdater.addListener('download', (info) => {
+        console.log('process v3.0.0', info.percent);
+    });
+    console.log('CapacitorUpdater', CapacitorUpdater);
+
+    console.log('version3', version);
+    if (version == undefined) return;
     // show the splashscreen to let the update happen
     SplashScreen.show()
-    await CapacitorUpdater.set(version)
+    await CapacitorUpdater.set(version).catch((err) => {
+        console.log('切换v3.0.0版本失败', err);
+        CapacitorUpdater.reset();
+    })
     SplashScreen.hide() // in case the set fail, otherwise the new app will have to hide it
 }
 const requireAll = context => context.keys().map(context);
