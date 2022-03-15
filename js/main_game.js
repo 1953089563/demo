@@ -39,7 +39,7 @@ export class mainGame extends Phaser.Scene {
 
         const btn = scene.add.container(1024 / 2, 300);
         const rect = scene.add.rectangle(0, 0, 150, 100, 0xfff, 0.5);
-        const text = this.add.text(0, 0, 'update v1.0.0').setOrigin(0.5);
+        const text = this.add.text(0, 0, 'update v2.0.0').setOrigin(0.5);
         btn.add([rect, text])
         btn.setSize(150, 100).setInteractive({
             useHandCursor: true
